@@ -1,0 +1,11 @@
+build
+*.mode1v3
+**/build/
+*.pbxuser
+.DS_Store
+docs/
+*.xcworkspace/
+xcuserdata*/
+*.orig
+.idea/
+**/iosglobomediaplayer/*
