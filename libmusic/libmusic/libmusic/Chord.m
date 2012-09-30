@@ -26,9 +26,10 @@
 #define MAJOR_SEVENTH_STEP 11 * ONE_STEP
 #define SIXTH_STEP 9 * ONE_STEP
 
-#define CIFRA_REGEX CIFRA_REGEX_SONIK
+#define CIFRA_REGEX CIFRA_REGEX_SIMPLE
+#define CIFRA_NEW_REGEX @"([A-G])(b|#)?(m)?"
 #define CIFRA_REGEX_SIMPLE @"([A-G])(b|#)?((m(aj)?|M|aug|dim|sus)([2-7]|b5|b9|9|13|b13)?)?"
-#define CIFRA_REGEX_SONIK @"([A-G])(b|#)?(m)?(7M|7|6|dim)?((b5|b9|9|13|b13))?"
+#define CIFRA_REGEX_SONIK  @"([A-G])(b|#)?(m)?(7M|7|6|dim)((b5|b9|9|13|b13))?"
 #define CIFRA_REGEX_ORIGINAL @"^[A-G](5|6|7|9|b|#)?((m(aj)?|M|aug|dim|sus)([2-7]|9|b9|b13|13)?)?(\/[A-G](b|#)?)?$"
 #define CIFRA_REGEX_ORIGINAL_BKP @"^[A-G](b|#)?((m(aj)?|M|aug|dim|sus)([2-7]|9|13)?)?(\/[A-G](b|#)?)?$"
 #define CIFRA_REGEX_GROUPS @"([A-G]?(b|#))?(((m(aj)?|M|aug|dim|sus))([2-7]|b5|b9|9|13|b13)?)?(\/[A-G](b|#)?)?"
@@ -106,88 +107,285 @@
     secondNote = [[Note alloc] initWithNote:INVALID_NOTE];
     thirdNote = [[Note alloc] initWithNote:INVALID_NOTE];
     fourthNote = [[Note alloc] initWithNote:INVALID_NOTE];
-    
-    int i = 0;
-    NSString *cifraRegex = [NSString stringWithFormat:@"%@", cifra];
-    cifraRegex = [cifraRegex stringByReplacingOccurrencesOfString:@"(" withString:@""];
-    cifraRegex = [cifraRegex stringByReplacingOccurrencesOfString:@")" withString:@""];
-    
-    NSMutableArray *chordComponentsFull = [NSMutableArray arrayWithArray:[cifraRegex captureComponentsMatchedByRegex:CIFRA_REGEX]];
-
-    NSMutableArray *chordComponents = [NSMutableArray arrayWithArray:chordComponentsFull];
-    
-    for( NSString *match in chordComponentsFull ) 
-        if( [match isEqualToString:@""] )
-           [chordComponents removeObject:match];
-    
-    if( [chordComponents count] > 1 )
-        [chordComponents removeObjectAtIndex:0];
   
-    for(NSString *match in chordComponents) {
-        if( i == 0 ) {
-            rootNote = [[Note alloc] initWithNoteName:match];
-            secondNote = [[Note alloc] initWithNote:NOTE_BY_INDEX([rootNote noteIndex] + MAJOR_THIRD_STEP)];
-            thirdNote = [[Note alloc] initWithNote:NOTE_BY_INDEX([rootNote noteIndex] + FIFTH_STEP)];
-            
-            isMajor = YES;
-            isMinor = !isMajor;
-            
-        }
-
-        // TONIC VARIATIONS
-        if( [match isEqualToString:FLAT_SIGN] ) {
-            rootNote = [[Note alloc] initWithNote:NOTE_BY_INDEX([rootNote noteIndex] - ONE_STEP)];
-            secondNote = [[Note alloc] initWithNote:NOTE_BY_INDEX([rootNote noteIndex] + MAJOR_THIRD_STEP)];
-            thirdNote = [[Note alloc] initWithNote:NOTE_BY_INDEX([rootNote noteIndex] + FIFTH_STEP)];
-        }
-        
-        if( [match isEqualToString:SHARP_SIGN] ) {
-            rootNote = [[Note alloc] initWithNote:NOTE_BY_INDEX([rootNote noteIndex] + ONE_STEP)];
-            secondNote = [[Note alloc] initWithNote:NOTE_BY_INDEX([rootNote noteIndex] + MAJOR_THIRD_STEP)];
-            thirdNote = [[Note alloc] initWithNote:NOTE_BY_INDEX([rootNote noteIndex] + FIFTH_STEP)];
-        }
-        
-        if( [match isEqualToString:DIM_SIGN] ) {
-            secondNote = [[Note alloc] initWithNote:NOTE_BY_INDEX([rootNote noteIndex] + MINOR_THIRD_STEP)];
-            thirdNote = [[Note alloc] initWithNote:NOTE_BY_INDEX([rootNote noteIndex] + ( 2 * MINOR_THIRD_STEP))];
-            fourthNote = [[Note alloc] initWithNote:NOTE_BY_INDEX([rootNote noteIndex] + ( 3 * MINOR_THIRD_STEP))];
-        }
-         
-        // MINOR VARIATIONS
-        if( [match isEqualToString:MINOR_SIGN] ) {
-            isMinor = YES;
-            isMajor = !isMinor;
-            
-            secondNote = [[Note alloc] initWithNote:NOTE_BY_INDEX([rootNote noteIndex] + MINOR_THIRD_STEP)];
-        }
- 
-        if( [match isEqualToString:FLAT_FIFTH] )
-            thirdNote = [[Note alloc] initWithNote:NOTE_BY_INDEX([rootNote noteIndex] + FLAT_FIFTH_STEP )];
-
-        // SEVENTH VARIATION
-        if( [match isEqualToString:SEVENTH_SIGN] ) {
-            hasSeventh = YES;
-            hasMajorSeventh = !hasSeventh;
-            fourthNote = [[Note alloc] initWithNote:NOTE_BY_INDEX([rootNote noteIndex] + SEVENTH_STEP )];
-        }
- 
-        if( [match isEqualToString:MAJOR_SEVENTH_SIGN] ) {
-            hasMajorSeventh = YES;
-            hasSeventh = !hasMajorSeventh;
-            fourthNote = [[Note alloc] initWithNote:NOTE_BY_INDEX([rootNote noteIndex] + MAJOR_SEVENTH_STEP )];
-        }
-
-        if( [match isEqualToString:SIXTH_SIGN] )
-            fourthNote = [[Note alloc] initWithNote:NOTE_BY_INDEX([rootNote noteIndex] + SIXTH_STEP )];
-        
-        if( [match isEqualToString:NINE_SIGN] )
-            thirdNote = [[Note alloc] initWithNote:NOTE_BY_INDEX([rootNote noteIndex] + SECOND_STEP)];
-
-        if( [match isEqualToString:FLAT_NINE_SIGN] )
-            thirdNote = [[Note alloc] initWithNote:NOTE_BY_INDEX([rootNote noteIndex] + MINOR_SECOND_STEP)];
-
-        i++;
+    NSError *error = NULL;
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern: CIFRA_REGEX
+                                                                           options: NSRegularExpressionCaseInsensitive
+                                                                             error: &error];
+  
+    if( error )
+    {
+      NSLog(@"%@", [error localizedDescription] );
+      return;
     }
+  
+    NSUInteger matchesCount = [regex numberOfMatchesInString: cifra
+                                                     options: 0
+                                                       range: NSMakeRange( 0, [cifra length] )];
+  
+    if( matchesCount == 0 )
+      return;
+  
+    [self matchRootNote];
+    [self matchFlatSharp];
+    [self matchMinor];
+    [self matchDim];
+    [self matchFlatFifth];
+    [self matchSevenths];
+    [self matchSixth];
+    [self matchNineths];
+}
+
+-( void ) matchRootNote
+{
+  NSError* error = nil;
+  NSRegularExpression* regex = [NSRegularExpression regularExpressionWithPattern: @"[A-G]"
+                                                                         options: 0
+                                                                           error: &error];
+  
+  if( error )
+    return;
+  
+  NSTextCheckingResult* result = [regex firstMatchInString: cifra
+                                                   options: 0
+                                                     range: NSMakeRange(0, [cifra length])];
+  
+  if( !result )
+    return;
+  
+  rootNote = [[Note alloc] initWithNoteName:[cifra substringWithRange: result.range]];
+  secondNote = [[Note alloc] initWithNote:NOTE_BY_INDEX([rootNote noteIndex] + MAJOR_THIRD_STEP)];
+  thirdNote = [[Note alloc] initWithNote:NOTE_BY_INDEX([rootNote noteIndex] + FIFTH_STEP)];
+
+  isMajor = YES;
+  isMinor = !isMajor;
+}
+
+-( void ) matchFlatSharp
+{
+  [self matchFlat];
+  [self matchSharp];
+}
+
+-( void ) matchFlat
+{
+  NSError* error = nil;
+  NSRegularExpression* regex = [NSRegularExpression regularExpressionWithPattern: @"[A-G]b"
+                                                                         options: 0
+                                                                           error: &error];
+  
+  if( error )
+    return;
+  
+  NSTextCheckingResult* result = [regex firstMatchInString: cifra
+                                                   options: 0
+                                                     range: NSMakeRange(0, [cifra length])];
+  
+  if( !result )
+    return;
+
+  // TONIC VARIATIONS
+  rootNote = [[Note alloc] initWithNote:NOTE_BY_INDEX([rootNote noteIndex] - ONE_STEP)];
+  secondNote = [[Note alloc] initWithNote:NOTE_BY_INDEX([rootNote noteIndex] + MAJOR_THIRD_STEP)];
+  thirdNote = [[Note alloc] initWithNote:NOTE_BY_INDEX([rootNote noteIndex] + FIFTH_STEP)];
+}
+
+-( void ) matchSharp
+{
+  NSError* error = nil;
+  NSRegularExpression* regex = [NSRegularExpression regularExpressionWithPattern: @"[A-G]#"
+                                                                         options: 0
+                                                                           error: &error];
+  
+  if( error )
+    return;
+  
+  NSTextCheckingResult* result = [regex firstMatchInString: cifra
+                                                   options: 0
+                                                     range: NSMakeRange(0, [cifra length])];
+  
+  if( !result )
+    return;
+
+  rootNote = [[Note alloc] initWithNote:NOTE_BY_INDEX([rootNote noteIndex] + ONE_STEP)];
+  secondNote = [[Note alloc] initWithNote:NOTE_BY_INDEX([rootNote noteIndex] + MAJOR_THIRD_STEP)];
+  thirdNote = [[Note alloc] initWithNote:NOTE_BY_INDEX([rootNote noteIndex] + FIFTH_STEP)];
+}
+
+-( void ) matchMinor
+{
+  NSError* error = nil;
+  NSRegularExpression* regex = [NSRegularExpression regularExpressionWithPattern: @"[A-G](b|#)?m"
+                                                                         options: 0
+                                                                           error: &error];
+  
+  if( error )
+    return;
+  
+  NSTextCheckingResult* result = [regex firstMatchInString: cifra
+                                                   options: 0
+                                                     range: NSMakeRange(0, [cifra length])];
+  
+  if( !result )
+    return;
+
+  // MINOR VARIATIONS
+  isMinor = YES;
+  isMajor = !isMinor;
+    
+  secondNote = [[Note alloc] initWithNote:NOTE_BY_INDEX([rootNote noteIndex] + MINOR_THIRD_STEP)];
+}
+
+-( void ) matchDim
+{
+  NSError* error = nil;
+  NSRegularExpression* regex = [NSRegularExpression regularExpressionWithPattern: @"dim{1}+"
+                                                                         options: 0
+                                                                           error: &error];
+  
+  if( error )
+    return;
+  
+  NSTextCheckingResult* result = [regex firstMatchInString: cifra
+                                                   options: 0
+                                                     range: NSMakeRange(0, [cifra length])];
+  
+  if( !result )
+    return;
+
+  secondNote = [[Note alloc] initWithNote:NOTE_BY_INDEX([rootNote noteIndex] + MINOR_THIRD_STEP)];
+  thirdNote = [[Note alloc] initWithNote:NOTE_BY_INDEX([rootNote noteIndex] + ( 2 * MINOR_THIRD_STEP))];
+  fourthNote = [[Note alloc] initWithNote:NOTE_BY_INDEX([rootNote noteIndex] + ( 3 * MINOR_THIRD_STEP))];
+}
+
+-( void ) matchFlatFifth
+{
+  NSError* error = nil;
+  NSRegularExpression* regex = [NSRegularExpression regularExpressionWithPattern: @"b5{1}+"
+                                                                         options: 0
+                                                                           error: &error];
+  
+  if( error )
+    return;
+  
+  NSTextCheckingResult* result = [regex firstMatchInString: cifra
+                                                   options: 0
+                                                     range: NSMakeRange(0, [cifra length])];
+  
+  if( !result )
+    return;
+
+  thirdNote = [[Note alloc] initWithNote:NOTE_BY_INDEX([rootNote noteIndex] + FLAT_FIFTH_STEP )];
+}
+
+-( void ) matchSixth
+{
+  NSError* error = nil;
+  NSRegularExpression* regex = [NSRegularExpression regularExpressionWithPattern: @"(6){1}+"
+                                                                         options: 0
+                                                                           error: &error];
+  
+  if( error )
+    return;
+  
+  NSTextCheckingResult* result = [regex firstMatchInString: cifra
+                                                   options: 0
+                                                     range: NSMakeRange(0, [cifra length])];
+  
+  if( !result )
+    return;
+  
+  fourthNote = [[Note alloc] initWithNote:NOTE_BY_INDEX([rootNote noteIndex] + SIXTH_STEP )];
+}
+
+-( void ) matchSevenths
+{
+  NSError* error = nil;
+  NSRegularExpression* regex = [NSRegularExpression regularExpressionWithPattern: @"(7M){1}+"
+                                                                         options: 0
+                                                                           error: &error];
+  
+  if( error )
+    return;
+  
+  NSTextCheckingResult* result = [regex firstMatchInString: cifra
+                                                   options: 0
+                                                     range: NSMakeRange(0, [cifra length])];
+  
+  if( !result ) {
+    [self matchSeventh];
+    return;
+  }
+
+  hasMajorSeventh = YES;
+  hasSeventh = !hasMajorSeventh;
+  fourthNote = [[Note alloc] initWithNote:NOTE_BY_INDEX([rootNote noteIndex] + MAJOR_SEVENTH_STEP )];
+
+}
+
+-( void ) matchSeventh
+{
+  NSError* error = nil;
+  NSRegularExpression* regex = [NSRegularExpression regularExpressionWithPattern: @"(7){1}+"
+                                                                         options: 0
+                                                                           error: &error];
+  
+  if( error )
+    return;
+  
+  NSTextCheckingResult* result = [regex firstMatchInString: cifra
+                                                   options: 0
+                                                     range: NSMakeRange(0, [cifra length])];
+  
+  if( !result )
+    return;
+
+  hasSeventh = YES;
+  hasMajorSeventh = !hasSeventh;
+  fourthNote = [[Note alloc] initWithNote:NOTE_BY_INDEX([rootNote noteIndex] + SEVENTH_STEP )];
+}
+
+-( void ) matchNineths
+{
+  NSError* error = nil;
+  NSRegularExpression* regex = [NSRegularExpression regularExpressionWithPattern: @"(b9){1}+"
+                                                                         options: 0
+                                                                           error: &error];
+  
+  if( error )
+    return;
+  
+  NSTextCheckingResult* result = [regex firstMatchInString: cifra
+                                                   options: 0
+                                                     range: NSMakeRange(0, [cifra length])];
+  
+  if( !result ) {
+    [self matchNineth];
+    return;
+  }
+  
+  thirdNote = [[Note alloc] initWithNote:NOTE_BY_INDEX([rootNote noteIndex] + MINOR_SECOND_STEP)];
+}
+
+-( void ) matchNineth
+{
+  NSError* error = nil;
+  NSRegularExpression* regex = [NSRegularExpression regularExpressionWithPattern: @"(9){1}+"
+                                                                         options: 0
+                                                                           error: &error];
+  
+  if( error )
+    return;
+  
+  NSTextCheckingResult* result = [regex firstMatchInString: cifra
+                                                   options: 0
+                                                     range: NSMakeRange(0, [cifra length])];
+  
+  if( !result )
+    return;
+
+  thirdNote = [[Note alloc] initWithNote:NOTE_BY_INDEX([rootNote noteIndex] + SECOND_STEP)];
+  
 }
 
 - (NSInteger) signature {
