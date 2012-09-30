@@ -1,0 +1,584 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D964CE951617CB76002FE75D /* RegexKitLite.h in Headers */ = {isa = PBXBuildFile; fileRef = D964CE931617CB76002FE75D /* RegexKitLite.h */; };
+		D964CE961617CB76002FE75D /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = D964CE941617CB76002FE75D /* RegexKitLite.m */; };
+		D9E1143A1612790B00250622 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9E114391612790B00250622 /* Foundation.framework */; };
+		D9E114401612790B00250622 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D9E1143E1612790B00250622 /* InfoPlist.strings */; };
+		D9E114491612790B00250622 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9E114481612790B00250622 /* SenTestingKit.framework */; };
+		D9E1144B1612790B00250622 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9E1144A1612790B00250622 /* UIKit.framework */; };
+		D9E1144C1612790B00250622 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9E114391612790B00250622 /* Foundation.framework */; };
+		D9E114511612790B00250622 /* libmusic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9E114361612790B00250622 /* libmusic.framework */; };
+		D9E114571612790B00250622 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D9E114551612790B00250622 /* InfoPlist.strings */; };
+		D9E1146B16127A0F00250622 /* Chord.h in Headers */ = {isa = PBXBuildFile; fileRef = D9E1146516127A0F00250622 /* Chord.h */; };
+		D9E1146C16127A0F00250622 /* Chord.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E1146616127A0F00250622 /* Chord.m */; };
+		D9E1146D16127A0F00250622 /* Note.h in Headers */ = {isa = PBXBuildFile; fileRef = D9E1146716127A0F00250622 /* Note.h */; };
+		D9E1146E16127A0F00250622 /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E1146816127A0F00250622 /* Note.m */; };
+		D9E1146F16127A0F00250622 /* Scale.h in Headers */ = {isa = PBXBuildFile; fileRef = D9E1146916127A0F00250622 /* Scale.h */; };
+		D9E1147016127A0F00250622 /* Scale.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E1146A16127A0F00250622 /* Scale.m */; };
+		D9E1147416127A2200250622 /* PianoChordViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = D9E1147216127A2200250622 /* PianoChordViewController.h */; };
+		D9E1147516127A2200250622 /* PianoChordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E1147316127A2200250622 /* PianoChordViewController.m */; };
+		D9E1147716127A3C00250622 /* PianoChordView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9E1147616127A3C00250622 /* PianoChordView.xib */; };
+		D9E1147F16127B4D00250622 /* ModesAnalysis.h in Headers */ = {isa = PBXBuildFile; fileRef = D9E1147D16127B4D00250622 /* ModesAnalysis.h */; };
+		D9E1148016127B4D00250622 /* ModesAnalysis.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E1147E16127B4D00250622 /* ModesAnalysis.m */; };
+		D9E1148C16127D9200250622 /* ChordTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E1148416127D9200250622 /* ChordTest.m */; };
+		D9E1148D16127D9200250622 /* ModesAnalysisTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E1148616127D9200250622 /* ModesAnalysisTests.m */; };
+		D9E1148E16127D9200250622 /* PianoChordViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E1148816127D9200250622 /* PianoChordViewControllerTest.m */; };
+		D9E1148F16127D9200250622 /* ScaleTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E1148A16127D9200250622 /* ScaleTest.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D9E1144D1612790B00250622 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D9E114291612790B00250622 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D9E114351612790B00250622;
+			remoteInfo = libmusic;
+		};
+		D9E1144F1612790B00250622 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D9E114291612790B00250622 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D9E114351612790B00250622;
+			remoteInfo = libmusic;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D964CE931617CB76002FE75D /* RegexKitLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegexKitLite.h; path = "../../Third/RegexKitLite-4.0/RegexKitLite.h"; sourceTree = "<group>"; };
+		D964CE941617CB76002FE75D /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegexKitLite.m; path = "../../Third/RegexKitLite-4.0/RegexKitLite.m"; sourceTree = "<group>"; };
+		D9E114361612790B00250622 /* libmusic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework.static; includeInIndex = 0; path = libmusic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9E114391612790B00250622 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D9E1143D1612790B00250622 /* libmusic-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "libmusic-Info.plist"; sourceTree = "<group>"; };
+		D9E1143F1612790B00250622 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D9E114411612790B00250622 /* libmusic-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "libmusic-Prefix.pch"; sourceTree = "<group>"; };
+		D9E114471612790B00250622 /* libmusicTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = libmusicTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9E114481612790B00250622 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		D9E1144A1612790B00250622 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		D9E114541612790B00250622 /* libmusicTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "libmusicTests-Info.plist"; sourceTree = "<group>"; };
+		D9E114561612790B00250622 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D9E1146516127A0F00250622 /* Chord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Chord.h; sourceTree = "<group>"; };
+		D9E1146616127A0F00250622 /* Chord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Chord.m; sourceTree = "<group>"; };
+		D9E1146716127A0F00250622 /* Note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Note.h; sourceTree = "<group>"; };
+		D9E1146816127A0F00250622 /* Note.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Note.m; sourceTree = "<group>"; };
+		D9E1146916127A0F00250622 /* Scale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scale.h; sourceTree = "<group>"; };
+		D9E1146A16127A0F00250622 /* Scale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Scale.m; sourceTree = "<group>"; };
+		D9E1147216127A2200250622 /* PianoChordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PianoChordViewController.h; sourceTree = "<group>"; };
+		D9E1147316127A2200250622 /* PianoChordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PianoChordViewController.m; sourceTree = "<group>"; };
+		D9E1147616127A3C00250622 /* PianoChordView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PianoChordView.xib; path = libmusic/PianoChordView.xib; sourceTree = SOURCE_ROOT; };
+		D9E1147D16127B4D00250622 /* ModesAnalysis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModesAnalysis.h; sourceTree = "<group>"; };
+		D9E1147E16127B4D00250622 /* ModesAnalysis.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModesAnalysis.m; sourceTree = "<group>"; };
+		D9E1148316127D9200250622 /* ChordTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChordTest.h; sourceTree = "<group>"; };
+		D9E1148416127D9200250622 /* ChordTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChordTest.m; sourceTree = "<group>"; };
+		D9E1148516127D9200250622 /* ModesAnalysisTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModesAnalysisTests.h; sourceTree = "<group>"; };
+		D9E1148616127D9200250622 /* ModesAnalysisTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModesAnalysisTests.m; sourceTree = "<group>"; };
+		D9E1148716127D9200250622 /* PianoChordViewControllerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PianoChordViewControllerTest.h; sourceTree = "<group>"; };
+		D9E1148816127D9200250622 /* PianoChordViewControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PianoChordViewControllerTest.m; sourceTree = "<group>"; };
+		D9E1148916127D9200250622 /* ScaleTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScaleTest.h; sourceTree = "<group>"; };
+		D9E1148A16127D9200250622 /* ScaleTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScaleTest.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D9E114301612790B00250622 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9E1143A1612790B00250622 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D9E114431612790B00250622 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9E114491612790B00250622 /* SenTestingKit.framework in Frameworks */,
+				D9E1144B1612790B00250622 /* UIKit.framework in Frameworks */,
+				D9E1144C1612790B00250622 /* Foundation.framework in Frameworks */,
+				D9E114511612790B00250622 /* libmusic.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D9E114271612790B00250622 = {
+			isa = PBXGroup;
+			children = (
+				D9E1143B1612790B00250622 /* libmusic */,
+				D9E114521612790B00250622 /* libmusicTests */,
+				D9E114381612790B00250622 /* Frameworks */,
+				D9E114371612790B00250622 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D9E114371612790B00250622 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D9E114361612790B00250622 /* libmusic.framework */,
+				D9E114471612790B00250622 /* libmusicTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D9E114381612790B00250622 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D9E114391612790B00250622 /* Foundation.framework */,
+				D9E114481612790B00250622 /* SenTestingKit.framework */,
+				D9E1144A1612790B00250622 /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D9E1143B1612790B00250622 /* libmusic */ = {
+			isa = PBXGroup;
+			children = (
+				D964CE931617CB76002FE75D /* RegexKitLite.h */,
+				D964CE941617CB76002FE75D /* RegexKitLite.m */,
+				D9E1147116127A2200250622 /* Views */,
+				D9E11463161279E900250622 /* Music Elements */,
+				D9E1143C1612790B00250622 /* Supporting Files */,
+			);
+			path = libmusic;
+			sourceTree = "<group>";
+		};
+		D9E1143C1612790B00250622 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D9E1143D1612790B00250622 /* libmusic-Info.plist */,
+				D9E1143E1612790B00250622 /* InfoPlist.strings */,
+				D9E114411612790B00250622 /* libmusic-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D9E114521612790B00250622 /* libmusicTests */ = {
+			isa = PBXGroup;
+			children = (
+				D9E1148316127D9200250622 /* ChordTest.h */,
+				D9E1148416127D9200250622 /* ChordTest.m */,
+				D9E1148516127D9200250622 /* ModesAnalysisTests.h */,
+				D9E1148616127D9200250622 /* ModesAnalysisTests.m */,
+				D9E1148716127D9200250622 /* PianoChordViewControllerTest.h */,
+				D9E1148816127D9200250622 /* PianoChordViewControllerTest.m */,
+				D9E1148916127D9200250622 /* ScaleTest.h */,
+				D9E1148A16127D9200250622 /* ScaleTest.m */,
+				D9E114531612790B00250622 /* Supporting Files */,
+			);
+			path = libmusicTests;
+			sourceTree = "<group>";
+		};
+		D9E114531612790B00250622 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D9E114541612790B00250622 /* libmusicTests-Info.plist */,
+				D9E114551612790B00250622 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D9E11463161279E900250622 /* Music Elements */ = {
+			isa = PBXGroup;
+			children = (
+				D9E1147D16127B4D00250622 /* ModesAnalysis.h */,
+				D9E1147E16127B4D00250622 /* ModesAnalysis.m */,
+				D9E1146516127A0F00250622 /* Chord.h */,
+				D9E1146616127A0F00250622 /* Chord.m */,
+				D9E1146716127A0F00250622 /* Note.h */,
+				D9E1146816127A0F00250622 /* Note.m */,
+				D9E1146916127A0F00250622 /* Scale.h */,
+				D9E1146A16127A0F00250622 /* Scale.m */,
+			);
+			name = "Music Elements";
+			sourceTree = "<group>";
+		};
+		D9E1147116127A2200250622 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D9E1147616127A3C00250622 /* PianoChordView.xib */,
+				D9E1147216127A2200250622 /* PianoChordViewController.h */,
+				D9E1147316127A2200250622 /* PianoChordViewController.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		D9E114311612790B00250622 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9E1146B16127A0F00250622 /* Chord.h in Headers */,
+				D9E1146D16127A0F00250622 /* Note.h in Headers */,
+				D9E1146F16127A0F00250622 /* Scale.h in Headers */,
+				D9E1147416127A2200250622 /* PianoChordViewController.h in Headers */,
+				D9E1147F16127B4D00250622 /* ModesAnalysis.h in Headers */,
+				D964CE951617CB76002FE75D /* RegexKitLite.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		D9E114351612790B00250622 /* libmusic */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D9E1145D1612790B00250622 /* Build configuration list for PBXNativeTarget "libmusic" */;
+			buildPhases = (
+				D9E1142E1612790B00250622 /* ShellScript */,
+				D9E1142F1612790B00250622 /* Sources */,
+				D9E114301612790B00250622 /* Frameworks */,
+				D9E114311612790B00250622 /* Headers */,
+				D9E114321612790B00250622 /* Resources */,
+				D9E114331612790B00250622 /* ShellScript */,
+				D9E114341612790B00250622 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = libmusic;
+			productName = libmusic;
+			productReference = D9E114361612790B00250622 /* libmusic.framework */;
+			productType = "com.apple.product-type.framework.static";
+		};
+		D9E114461612790B00250622 /* libmusicTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D9E114601612790B00250622 /* Build configuration list for PBXNativeTarget "libmusicTests" */;
+			buildPhases = (
+				D9E114421612790B00250622 /* Sources */,
+				D9E114431612790B00250622 /* Frameworks */,
+				D9E114441612790B00250622 /* Resources */,
+				D9E114451612790B00250622 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D9E1144E1612790B00250622 /* PBXTargetDependency */,
+				D9E114501612790B00250622 /* PBXTargetDependency */,
+			);
+			name = libmusicTests;
+			productName = libmusicTests;
+			productReference = D9E114471612790B00250622 /* libmusicTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D9E114291612790B00250622 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = vlima;
+			};
+			buildConfigurationList = D9E1142C1612790B00250622 /* Build configuration list for PBXProject "libmusic" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = D9E114271612790B00250622;
+			productRefGroup = D9E114371612790B00250622 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D9E114351612790B00250622 /* libmusic */,
+				D9E114461612790B00250622 /* libmusicTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D9E114321612790B00250622 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9E114401612790B00250622 /* InfoPlist.strings in Resources */,
+				D9E1147716127A3C00250622 /* PianoChordView.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D9E114441612790B00250622 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9E114571612790B00250622 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D9E1142E1612790B00250622 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e\n\nset +u\nif [[ $UFW_MASTER_SCRIPT_RUNNING ]]\nthen\n    # Nothing for the slave script to do\n    exit 0\nfi\nset -u\n\nif [[ \"$SDK_NAME\" =~ ([A-Za-z]+) ]]\nthen\n    UFW_SDK_PLATFORM=${BASH_REMATCH[1]}\nelse\n    echo \"Could not find platform name from SDK_NAME: $SDK_NAME\"\n    exit 1\nfi\n\nif [[ \"$SDK_NAME\" =~ ([0-9]+.*$) ]]\nthen\n\tUFW_SDK_VERSION=${BASH_REMATCH[1]}\nelse\n    echo \"Could not find sdk version  from SDK_NAME: $SDK_NAME\"\n    exit 1\nfi\n\nif [[ \"$UFW_SDK_PLATFORM\" = \"iphoneos\" ]]\nthen\n    UFW_OTHER_PLATFORM=iphonesimulator\nelse\n    UFW_OTHER_PLATFORM=iphoneos\nfi\n\nif [[ \"$BUILT_PRODUCTS_DIR\" =~ (.*)$UFW_SDK_PLATFORM$ ]]\nthen\n    UFW_OTHER_BUILT_PRODUCTS_DIR=\"${BASH_REMATCH[1]}${UFW_OTHER_PLATFORM}\"\nelse\n    echo \"Could not find $UFW_SDK_PLATFORM in $BUILT_PRODUCTS_DIR\"\n    exit 1\nfi\n\nONLY_ACTIVE_PLATFORM=${ONLY_ACTIVE_PLATFORM:-$ONLY_ACTIVE_ARCH}\n\n# Short-circuit if all binaries are up to date\n\nif [[ -f \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\" ]] && \\\n   [[ -f \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework/${EXECUTABLE_PATH}\" ]] && \\\n   [[ ! \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\" -nt \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework/${EXECUTABLE_PATH}\" ]] && \\\n  ([[ \"${ONLY_ACTIVE_PLATFORM}\" == \"YES\" ]] || \\\n    ([[ -f \"${UFW_OTHER_BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\" ]] && \\\n     [[ -f \"${UFW_OTHER_BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework/${EXECUTABLE_PATH}\" ]] && \\\n     [[ ! \"${UFW_OTHER_BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\" -nt \"${UFW_OTHER_BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework/${EXECUTABLE_PATH}\" ]]\n    )\n  )\nthen\n    exit 0\nfi\n\n\n# Clean other platform if needed\n\nif [[ ! -f \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\" ]] && [[ \"${ONLY_ACTIVE_PLATFORM}\" != \"YES\" ]]\nthen\n\techo \"Platform \\\"$UFW_SDK_PLATFORM\\\" was cleaned recently. Cleaning \\\"$UFW_OTHER_PLATFORM\\\" as well\"\n\techo xcodebuild -project \"${PROJECT_FILE_PATH}\" -target \"${TARGET_NAME}\" -configuration \"${CONFIGURATION}\" -sdk ${UFW_OTHER_PLATFORM}${UFW_SDK_VERSION} BUILD_DIR=\"${BUILD_DIR}\" CONFIGURATION_TEMP_DIR=\"${PROJECT_TEMP_DIR}/${CONFIGURATION}-${UFW_OTHER_PLATFORM}\" clean\n\txcodebuild -project \"${PROJECT_FILE_PATH}\" -target \"${TARGET_NAME}\" -configuration \"${CONFIGURATION}\" -sdk ${UFW_OTHER_PLATFORM}${UFW_SDK_VERSION} BUILD_DIR=\"${BUILD_DIR}\" CONFIGURATION_TEMP_DIR=\"${PROJECT_TEMP_DIR}/${CONFIGURATION}-${UFW_OTHER_PLATFORM}\" clean\nfi\n\n\n# Make sure we are building from fresh binaries\n\nrm -rf \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\"\nrm -rf \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework\"\n\nif [[ \"${ONLY_ACTIVE_PLATFORM}\" != \"YES\" ]]\nthen\n    rm -rf \"${UFW_OTHER_BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\"\n    rm -rf \"${UFW_OTHER_BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework\"\nfi\n";
+		};
+		D9E114331612790B00250622 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "HEADERS_ROOT=$SRCROOT/$PRODUCT_NAME\nFRAMEWORK_HEADERS_DIR=\"$BUILT_PRODUCTS_DIR/$WRAPPER_NAME/Versions/$FRAMEWORK_VERSION/Headers\"\n\n## only header files expected at this point\nPUBLIC_HEADERS=$(find $FRAMEWORK_HEADERS_DIR/. -not -type d 2> /dev/null | sed -e \"s@.*/@@g\")\n\nFIND_OPTS=\"\"\nfor PUBLIC_HEADER in $PUBLIC_HEADERS; do\n  if [ -n \"$FIND_OPTS\" ]; then\n    FIND_OPTS=\"$FIND_OPTS -o\"\n  fi\n  FIND_OPTS=\"$FIND_OPTS -name '$PUBLIC_HEADER'\"\ndone\n\nif [ -n \"$FIND_OPTS\" ]; then\n  for ORIG_HEADER in $(eval \"find $HEADERS_ROOT/. $FIND_OPTS\" 2> /dev/null | sed -e \"s@^$HEADERS_ROOT/./@@g\"); do\n    PUBLIC_HEADER=$(basename $ORIG_HEADER)\n    RELATIVE_PATH=$(dirname $ORIG_HEADER)\n    if [ -e $FRAMEWORK_HEADERS_DIR/$PUBLIC_HEADER ]; then\n      mkdir -p \"$FRAMEWORK_HEADERS_DIR/$RELATIVE_PATH\"\n      mv \"$FRAMEWORK_HEADERS_DIR/$PUBLIC_HEADER\" \"$FRAMEWORK_HEADERS_DIR/$RELATIVE_PATH/$PUBLIC_HEADER\"\n    fi\n  done\nfi\n";
+		};
+		D9E114341612790B00250622 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e\n\nset +u\nif [[ $UFW_MASTER_SCRIPT_RUNNING ]]\nthen\n    # Nothing for the slave script to do\n    exit 0\nfi\nset -u\nexport UFW_MASTER_SCRIPT_RUNNING=1\n\n\n# Functions\n\n## List files in the specified directory, storing to the specified array.\n#\n# @param $1 The path to list\n# @param $2 The name of the array to fill\n#\n##\nlist_files ()\n{\n    filelist=$(ls \"$1\")\n    while read line\n    do\n        eval \"$2[\\${#$2[*]}]=\\\"\\$line\\\"\"\n    done <<< \"$filelist\"\n}\n\n\n# Sanity check\n\nif [[ ! -f \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\" ]]\nthen\n    echo \"Framework target \\\"${TARGET_NAME}\\\" had no source files to build from. Make sure your source files have the correct target membership\"\n    exit 1\nfi\n\n\n# Gather information\n\nif [[ \"$SDK_NAME\" =~ ([A-Za-z]+) ]]\nthen\n    UFW_SDK_PLATFORM=${BASH_REMATCH[1]}\nelse\n    echo \"Could not find platform name from SDK_NAME: $SDK_NAME\"\n    exit 1\nfi\n\nif [[ \"$SDK_NAME\" =~ ([0-9]+.*$) ]]\nthen\n    UFW_SDK_VERSION=${BASH_REMATCH[1]}\nelse\n    echo \"Could not find sdk version from SDK_NAME: $SDK_NAME\"\n    exit 1\nfi\n\nif [[ \"$UFW_SDK_PLATFORM\" = \"iphoneos\" ]]\nthen\n    UFW_OTHER_PLATFORM=iphonesimulator\nelse\n    UFW_OTHER_PLATFORM=iphoneos\nfi\n\nif [[ \"$BUILT_PRODUCTS_DIR\" =~ (.*)$UFW_SDK_PLATFORM$ ]]\nthen\n    UFW_OTHER_BUILT_PRODUCTS_DIR=\"${BASH_REMATCH[1]}${UFW_OTHER_PLATFORM}\"\nelse\n    echo \"Could not find $UFW_SDK_PLATFORM in $BUILT_PRODUCTS_DIR\"\n    exit 1\nfi\n\nONLY_ACTIVE_PLATFORM=${ONLY_ACTIVE_PLATFORM:-$ONLY_ACTIVE_ARCH}\n\n# Short-circuit if all binaries are up to date.\n# We already checked the other platform in the prerun script.\n\nif [[ -f \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\" ]] && [[ -f \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework/${EXECUTABLE_PATH}\" ]] && [[ ! \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\" -nt \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework/${EXECUTABLE_PATH}\" ]]\nthen\n    exit 0\nfi\n\nif [ \"${ONLY_ACTIVE_PLATFORM}\" == \"YES\" ]\nthen\n    echo \"ONLY_ACTIVE_PLATFORM=${ONLY_ACTIVE_PLATFORM}: Skipping other platform build\"\nelse\n    # Make sure the other platform gets built\n    \n    echo \"Build other platform\"\n    \n    echo xcodebuild -project \"${PROJECT_FILE_PATH}\" -target \"${TARGET_NAME}\" -configuration \"${CONFIGURATION}\" -sdk ${UFW_OTHER_PLATFORM}${UFW_SDK_VERSION} BUILD_DIR=\"${BUILD_DIR}\" CONFIGURATION_TEMP_DIR=\"${PROJECT_TEMP_DIR}/${CONFIGURATION}-${UFW_OTHER_PLATFORM}\" $ACTION\n    xcodebuild -project \"${PROJECT_FILE_PATH}\" -target \"${TARGET_NAME}\" -configuration \"${CONFIGURATION}\" -sdk ${UFW_OTHER_PLATFORM}${UFW_SDK_VERSION} BUILD_DIR=\"${BUILD_DIR}\" CONFIGURATION_TEMP_DIR=\"${PROJECT_TEMP_DIR}/${CONFIGURATION}-${UFW_OTHER_PLATFORM}\" $ACTION\n    \n    \n    # Build the fat static library binary\n    \n    echo \"Create universal static library\"\n    \n    echo \"$PLATFORM_DEVELOPER_BIN_DIR/libtool\" -static \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\" \"${UFW_OTHER_BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\" -o \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}.temp\"\n    \"$PLATFORM_DEVELOPER_BIN_DIR/libtool\" -static \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\" \"${UFW_OTHER_BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\" -o \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}.temp\"\n    \n    echo mv \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}.temp\" \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\"\n    mv \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}.temp\" \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\"\nfi\n\n# Build embedded framework structure\n\necho \"Build Embedded Framework\"\n\necho rm -rf \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework\"\nrm -rf \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework\"\necho mkdir -p \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework/Resources\"\nmkdir -p \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework/Resources\"\necho cp -a \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}\" \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework/\"\ncp -a \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}\" \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework/\"\n\ndeclare -a UFW_FILE_LIST\nlist_files \"${BUILT_PRODUCTS_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}\" UFW_FILE_LIST\nfor filename in \"${UFW_FILE_LIST[@]}\"\ndo\n    if [[ \"${filename}\" != \"Info.plist\" ]] && [[ ! \"${filename}\" =~ .*\\.lproj$ ]]\n    then\n        echo ln -sfh \"../${WRAPPER_NAME}/Resources/${filename}\" \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework/Resources/${filename}\"\n        ln -sfh \"../${WRAPPER_NAME}/Resources/${filename}\" \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework/Resources/${filename}\"\n    fi\ndone\n\n\nif [ \"${ONLY_ACTIVE_PLATFORM}\" != \"YES\" ]\nthen\n    # Replace other platform's framework with a copy of this one (so that both have the same universal binary)\n    \n    echo \"Copy from $UFW_SDK_PLATFORM to $UFW_OTHER_PLATFORM\"\n    \n    echo rm -rf \"${BUILD_DIR}/${CONFIGURATION}-${UFW_OTHER_PLATFORM}\"\n    rm -rf \"${BUILD_DIR}/${CONFIGURATION}-${UFW_OTHER_PLATFORM}\"\n    echo cp -a \"${BUILD_DIR}/${CONFIGURATION}-${UFW_SDK_PLATFORM}\" \"${BUILD_DIR}/${CONFIGURATION}-${UFW_OTHER_PLATFORM}\"\n    cp -a \"${BUILD_DIR}/${CONFIGURATION}-${UFW_SDK_PLATFORM}\" \"${BUILD_DIR}/${CONFIGURATION}-${UFW_OTHER_PLATFORM}\"\nfi\n";
+		};
+		D9E114451612790B00250622 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D9E1142F1612790B00250622 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9E1146C16127A0F00250622 /* Chord.m in Sources */,
+				D9E1146E16127A0F00250622 /* Note.m in Sources */,
+				D9E1147016127A0F00250622 /* Scale.m in Sources */,
+				D9E1147516127A2200250622 /* PianoChordViewController.m in Sources */,
+				D9E1148016127B4D00250622 /* ModesAnalysis.m in Sources */,
+				D964CE961617CB76002FE75D /* RegexKitLite.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D9E114421612790B00250622 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9E1148C16127D9200250622 /* ChordTest.m in Sources */,
+				D9E1148D16127D9200250622 /* ModesAnalysisTests.m in Sources */,
+				D9E1148E16127D9200250622 /* PianoChordViewControllerTest.m in Sources */,
+				D9E1148F16127D9200250622 /* ScaleTest.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D9E1144E1612790B00250622 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D9E114351612790B00250622 /* libmusic */;
+			targetProxy = D9E1144D1612790B00250622 /* PBXContainerItemProxy */;
+		};
+		D9E114501612790B00250622 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D9E114351612790B00250622 /* libmusic */;
+			targetProxy = D9E1144F1612790B00250622 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D9E1143E1612790B00250622 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D9E1143F1612790B00250622 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		D9E114551612790B00250622 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D9E114561612790B00250622 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D9E1145B1612790B00250622 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		D9E1145C1612790B00250622 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D9E1145E1612790B00250622 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					armv6,
+					"$(ARCHS_STANDARD_32_BIT)",
+				);
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "libmusic/libmusic-Prefix.pch";
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/../Third/**";
+				INFOPLIST_FILE = "libmusic/libmusic-Info.plist";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Debug;
+		};
+		D9E1145F1612790B00250622 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					armv6,
+					"$(ARCHS_STANDARD_32_BIT)",
+				);
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "libmusic/libmusic-Prefix.pch";
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/../Third/**";
+				INFOPLIST_FILE = "libmusic/libmusic-Info.plist";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Release;
+		};
+		D9E114611612790B00250622 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "libmusic/libmusic-Prefix.pch";
+				INFOPLIST_FILE = "libmusicTests/libmusicTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		D9E114621612790B00250622 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "libmusic/libmusic-Prefix.pch";
+				INFOPLIST_FILE = "libmusicTests/libmusicTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D9E1142C1612790B00250622 /* Build configuration list for PBXProject "libmusic" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D9E1145B1612790B00250622 /* Debug */,
+				D9E1145C1612790B00250622 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D9E1145D1612790B00250622 /* Build configuration list for PBXNativeTarget "libmusic" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D9E1145E1612790B00250622 /* Debug */,
+				D9E1145F1612790B00250622 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D9E114601612790B00250622 /* Build configuration list for PBXNativeTarget "libmusicTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D9E114611612790B00250622 /* Debug */,
+				D9E114621612790B00250622 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D9E114291612790B00250622 /* Project object */;
+}
