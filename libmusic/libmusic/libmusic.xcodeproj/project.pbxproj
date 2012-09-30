@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D964CE951617CB76002FE75D /* RegexKitLite.h in Headers */ = {isa = PBXBuildFile; fileRef = D964CE931617CB76002FE75D /* RegexKitLite.h */; };
-		D964CE961617CB76002FE75D /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = D964CE941617CB76002FE75D /* RegexKitLite.m */; };
 		D9E1143A1612790B00250622 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9E114391612790B00250622 /* Foundation.framework */; };
 		D9E114401612790B00250622 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D9E1143E1612790B00250622 /* InfoPlist.strings */; };
 		D9E114491612790B00250622 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9E114481612790B00250622 /* SenTestingKit.framework */; };
@@ -51,8 +49,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		D964CE931617CB76002FE75D /* RegexKitLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegexKitLite.h; path = "../../Third/RegexKitLite-4.0/RegexKitLite.h"; sourceTree = "<group>"; };
-		D964CE941617CB76002FE75D /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegexKitLite.m; path = "../../Third/RegexKitLite-4.0/RegexKitLite.m"; sourceTree = "<group>"; };
 		D9E114361612790B00250622 /* libmusic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework.static; includeInIndex = 0; path = libmusic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9E114391612790B00250622 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D9E1143D1612790B00250622 /* libmusic-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "libmusic-Info.plist"; sourceTree = "<group>"; };
@@ -139,8 +135,6 @@
 		D9E1143B1612790B00250622 /* libmusic */ = {
 			isa = PBXGroup;
 			children = (
-				D964CE931617CB76002FE75D /* RegexKitLite.h */,
-				D964CE941617CB76002FE75D /* RegexKitLite.m */,
 				D9E1147116127A2200250622 /* Views */,
 				D9E11463161279E900250622 /* Music Elements */,
 				D9E1143C1612790B00250622 /* Supporting Files */,
@@ -220,7 +214,6 @@
 				D9E1146F16127A0F00250622 /* Scale.h in Headers */,
 				D9E1147416127A2200250622 /* PianoChordViewController.h in Headers */,
 				D9E1147F16127B4D00250622 /* ModesAnalysis.h in Headers */,
-				D964CE951617CB76002FE75D /* RegexKitLite.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -380,7 +373,6 @@
 				D9E1147016127A0F00250622 /* Scale.m in Sources */,
 				D9E1147516127A2200250622 /* PianoChordViewController.m in Sources */,
 				D9E1148016127B4D00250622 /* ModesAnalysis.m in Sources */,
-				D964CE961617CB76002FE75D /* RegexKitLite.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

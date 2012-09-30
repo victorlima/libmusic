@@ -1,5 +1,7 @@
 # Xcode
 docs/*
+libmusic/libmusic/build/*
+libmusic/builds/*
 build/*
 builds/*
 **/.DS_Store

@@ -491,11 +491,11 @@ RKL_STATIC_INLINE id    rkl_ReleaseObject             (id obj)                  
 
 RKL_STATIC_INLINE void *rkl_realloc                   (void **ptr, size_t size, NSUInteger flags RKL_UNUSED_ARG) { return((*ptr = reallocf(*ptr, size))); }
 RKL_STATIC_INLINE void *rkl_free                      (void **ptr)                                               { if(*ptr != NULL) { free(*ptr); *ptr = NULL; } return(NULL); }
-RKL_STATIC_INLINE id    rkl_CFAutorelease             (CFTypeRef obj)                                            { return([(id)obj autorelease]); }
-RKL_STATIC_INLINE id    rkl_CreateArrayWithObjects    (void **objects, NSUInteger count)                         { return((id)CFArrayCreate(NULL, (const void **)objects, (CFIndex)count, &rkl_transferOwnershipArrayCallBacks)); }
-RKL_STATIC_INLINE id    rkl_CreateAutoreleasedArray   (void **objects, NSUInteger count)                         { return(rkl_CFAutorelease(rkl_CreateArrayWithObjects(objects, count))); }
-RKL_STATIC_INLINE id    rkl_CreateStringWithSubstring (id string, NSRange range)                                 { return((id)CFStringCreateWithSubstring(NULL, (CFStringRef)string, CFMakeRange((CFIndex)range.location, (CFIndex)range.length))); }
-RKL_STATIC_INLINE id    rkl_ReleaseObject             (id obj)                                                   { CFRelease((CFTypeRef)obj); return(NULL); }
+RKL_STATIC_INLINE id    rkl_CFAutorelease             (CFTypeRef obj)                                            { return([(__bridge id)obj autorelease]); }
+RKL_STATIC_INLINE id    rkl_CreateArrayWithObjects    (void **objects, NSUInteger count)                         { return((__bridge id)CFArrayCreate(NULL, (const void **)objects, (CFIndex)count, &rkl_transferOwnershipArrayCallBacks)); }
+RKL_STATIC_INLINE id    rkl_CreateAutoreleasedArray   (void **objects, NSUInteger count)                         { return(rkl_CFAutorelease((__bridge CFTypeRef)(rkl_CreateArrayWithObjects(objects, count)))); }
+RKL_STATIC_INLINE id    rkl_CreateStringWithSubstring (id string, NSRange range)                                 { return((__bridge id)CFStringCreateWithSubstring(NULL, (CFStringRef)string, CFMakeRange((CFIndex)range.location, (CFIndex)range.length))); }
+RKL_STATIC_INLINE id    rkl_ReleaseObject             (id obj)                                                   { CFRelease((__bridge CFTypeRef)obj); return(NULL); }
 
 #endif // __OBJC_GC__
 
@@ -628,7 +628,7 @@ __attribute__((constructor)) static void rkl_RegisterForLowMemoryNotifications(v
   while((rkl_HaveRegisteredForLowMemoryNotifications == 0) && ((didSwap = OSAtomicCompareAndSwapIntBarrier(0, 1, &rkl_HaveRegisteredForLowMemoryNotifications)) == false)) { /* Allows for spurious CAS failures. */ }
   if(didSwap == true) {
     if((memoryWarningNotification = (void **)dlsym(RTLD_DEFAULT, "UIApplicationDidReceiveMemoryWarningNotification")) != NULL) {
-      [[NSNotificationCenter defaultCenter] addObserver:[RKLLowMemoryWarningObserver class] selector:@selector(lowMemoryWarning:) name:(NSString *)*memoryWarningNotification object:NULL];
+      [[NSNotificationCenter defaultCenter] addObserver:[RKLLowMemoryWarningObserver class] selector:@selector(lowMemoryWarning:) name:(__bridge NSString *)*memoryWarningNotification object:NULL];
     }
   }
 }
@@ -787,14 +787,14 @@ static RKLCachedRegex *rkl_getCachedRegex(NSString *regexString, RKLRegexOptions
   // Fast path the common case where this regex is exactly the same one used last time.
   // The pointer equality test is valid under these circumstances since the cachedRegex->regexString is an immutable copy.
   // If the regexString argument is mutable, this test will fail, and we'll use the the slow path cache check below.
-  if(RKL_EXPECTED(rkl_lastCachedRegex != NULL, 1L) && RKL_EXPECTED(rkl_lastCachedRegex->regexString == (CFStringRef)regexString, 1L) && RKL_EXPECTED(rkl_lastCachedRegex->options == options, 1L) && RKL_EXPECTED(rkl_lastCachedRegex->icu_regex != NULL, 1L)) {
+  if(RKL_EXPECTED(rkl_lastCachedRegex != NULL, 1L) && RKL_EXPECTED(rkl_lastCachedRegex->regexString == (CFStringRef)CFBridgingRetain(regexString, 1L) && RKL_EXPECTED(rkl_lastCachedRegex->options == options, 1L) && RKL_EXPECTED(rkl_lastCachedRegex->icu_regex != NULL, 1L)) {
     rkl_dtrace_compiledRegexCache(&rkl_dtrace_regexUTF8[(rkl_lastCachedRegex - rkl_cachedRegexes)][0], rkl_lastCachedRegex->options, (int)rkl_lastCachedRegex->captureCount, 1, 0, NULL);
     return(rkl_lastCachedRegex);
   }
 
   rkl_lastCachedRegex = NULL; // Make sure that rkl_lastCachedRegex is NULL in case there is some kind of error.
   cachedRegex         = rkl_cachedRegexFromRegexLookasideCacheForString(regexString, options); // Check the Regex Lookaside Cache to see if we can quickly find the correct Cached Regex for this regexString pointer + options.
-  if((RKL_EXPECTED(cachedRegex->regexString == (CFStringRef)regexString, 1L) || (RKL_EXPECTED(cachedRegex->regexString != NULL, 1L) && RKL_EXPECTED(CFEqual((CFTypeRef)regexString, (CFTypeRef)cachedRegex->regexString) == YES, 1L))) && RKL_EXPECTED(cachedRegex->options == options, 1L) && RKL_EXPECTED(cachedRegex->icu_regex != NULL, 1L)) { goto foundMatch; } // There was a Regex Lookaside Cache hit, jump to foundMatch: to quickly return the result. A Regex Lookaside Cache hit allows us to bypass calling CFHash(), which is a decent performance win.
+  if((RKL_EXPECTED(cachedRegex->regexString == (CFStringRef)CFBridgingRetain(regexString, 1L) || (RKL_EXPECTED(cachedRegex->regexString != NULL, 1L) && RKL_EXPECTED(CFEqual((CFTypeRef)regexString, (CFTypeRef)cachedRegex->regexString) == YES, 1L))) && RKL_EXPECTED(cachedRegex->options == options, 1L) && RKL_EXPECTED(cachedRegex->icu_regex != NULL, 1L)) { goto foundMatch; } // There was a Regex Lookaside Cache hit, jump to foundMatch: to quickly return the result. A Regex Lookaside Cache hit allows us to bypass calling CFHash(), which is a decent performance win.
   else { cachedRegex = NULL; regexHash = CFHash((CFTypeRef)regexString); } // Regex Lookaside Cache miss.  We need to call CFHash() to determine the cache set for this regex.
 
   NSInteger cacheWay = 0L;                                                               // Check each way of the set that this regex belongs to.
@@ -803,7 +803,7 @@ static RKLCachedRegex *rkl_getCachedRegex(NSString *regexString, RKLRegexOptions
     // Return the cached entry if it's a match. If regexString is mutable, the pointer equality test will fail, and CFEqual() is used to determine true equality with the immutable cachedRegex copy.  CFEqual() performs a slow character by character check.
     if(RKL_EXPECTED(cachedRegex->regexHash == regexHash, 0UL) && ((cachedRegex->regexString == (CFStringRef)regexString) || (RKL_EXPECTED(cachedRegex->regexString != NULL, 1L) && RKL_EXPECTED(CFEqual((CFTypeRef)regexString, (CFTypeRef)cachedRegex->regexString) == YES, 1L))) && RKL_EXPECTED(cachedRegex->options == options, 1L) && RKL_EXPECTED(cachedRegex->icu_regex != NULL, 1L)) {
     foundMatch: // Control can transfer here (from above) via a Regex Lookaside Cache hit.
-      rkl_updateCachesWithCachedRegex(cachedRegex, regexString, 1, 0);
+      rkl_updateCachesWithCachedRegex(cachedRegex, (__bridge const void *)(regexString), 1, 0);
       return(cachedRegex);
     }
   }
@@ -840,7 +840,7 @@ static RKLCachedRegex *rkl_getCachedRegex(NSString *regexString, RKLRegexOptions
   // Create the ICU regex.
   if(RKL_EXPECTED((cachedRegex->icu_regex = RKL_ICU_FUNCTION_APPEND(uregex_open)(regexUniChar, (int32_t)regexStringU16Length, options, &parseError, &status)) == NULL, 0L)) { goto exitNow; }
   if(RKL_EXPECTED(status <= U_ZERO_ERROR, 1L)) { cachedRegex->captureCount = (NSInteger)RKL_ICU_FUNCTION_APPEND(uregex_groupCount)(cachedRegex->icu_regex, &status); }
-  if(RKL_EXPECTED(status <= U_ZERO_ERROR, 1L)) { rkl_updateCachesWithCachedRegex(cachedRegex, regexString, 0, status); }
+  if(RKL_EXPECTED(status <= U_ZERO_ERROR, 1L)) { rkl_updateCachesWithCachedRegex(cachedRegex, (__bridge const void *)(regexString), 0, status); }
   
 exitNow:
   if(RKL_EXPECTED(rkl_scratchBuffer[0] != NULL,         0L)) { rkl_scratchBuffer[0] = rkl_free(&rkl_scratchBuffer[0]); }

@@ -1,0 +1,3 @@
+[submodule "libmusic/Third/RegexKitLite"]
+	path = libmusic/Third/RegexKitLite
+	url = git://github.com/wezm/RegexKitLite.git

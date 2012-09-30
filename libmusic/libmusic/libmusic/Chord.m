@@ -10,9 +10,6 @@
 
 #import "Scale.h"
 
-#import "RegexKitLite.h"
-
-
 #define MAJOR_SCALE_THIRD 2
 #define MAJOR_SCALE_FIFTH 4
 #define MAJOR_SCALE_SEVENTH 6
