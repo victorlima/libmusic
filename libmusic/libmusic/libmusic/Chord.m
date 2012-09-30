@@ -93,9 +93,12 @@
 + (BOOL) isValidChord:(NSString *) cifra {
   NSError* error = nil;
   
-  NSRegularExpression* regex = [NSRegularExpression regularExpressionWithPattern:CIFRA_REGEX
-                                                                         options:NSRegularExpressionCaseInsensitive
-                                                                           error:&error];
+  NSRegularExpression* regex = [NSRegularExpression regularExpressionWithPattern: CIFRA_REGEX
+                                                                         options: NSRegularExpressionCaseInsensitive
+                                                                           error: &error];
+  
+  if( error )
+    return NO;
   
   NSArray* matches = [regex matchesInString:cifra options:0 range:NSMakeRange(0, [cifra length]) ]; 
   return ( [matches count] > 0 );
@@ -136,6 +139,7 @@
     [self matchNineths];
 }
 
+#pragma mark - Regex Matches for Cifra Components
 -( void ) matchRootNote
 {
   NSError* error = nil;
@@ -388,6 +392,8 @@
   
 }
 
+
+#pragma mark - Utils Methods
 - (NSInteger) signature {
     return [rootNote noteIndex] + [secondNote noteIndex] + [thirdNote noteIndex] + [fourthNote noteIndex];
 }
